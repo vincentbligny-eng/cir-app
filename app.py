@@ -10,8 +10,9 @@ app = Flask(__name__, static_folder="static")
 # Set DATABASE_URL env var for PostgreSQL (production).
 # Falls back to local SQLite for development.
 DATABASE_URL = os.environ.get("DATABASE_URL")
-DB_PATH = os.path.join(os.path.dirname(__file__), "cir_data.db")
-BACKUP_DIR = os.path.join(os.path.dirname(__file__), "backups")
+DB_DIR = os.environ.get("DB_DIR", os.path.dirname(__file__))
+DB_PATH = os.path.join(DB_DIR, "cir_data.db")
+BACKUP_DIR = os.path.join(DB_DIR, "backups")
 
 LEGAL_HOURS_PER_DAY = 7.0
 LEGAL_DAYS_PER_WEEK = 5
