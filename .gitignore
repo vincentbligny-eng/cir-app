@@ -8,3 +8,4 @@ venv/
 backups/
 .DS_Store
 .claude/
+cir_export.json
